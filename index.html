@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Найгарніші озера світу</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+    }
+
+
+header {
+  background: linear-gradient(to right, #0077b6, #00b4d8);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+section {
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.lake {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.lake h2 {
+  margin-top: 0;
+}
+
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #0077b6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #023e8a;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #0077b6;
+  color: white;
+}
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Найгарніші озера світу</h1>
+  <p>Досліджуй природу разом з нами</p>
+</header>
+
+<section> <div class="lake"> <h2>Озеро Блед (Словенія)</h2>
+<!-- 🔴 ТУТ ДОДАНО ФОТО -->
+<img src="https://i.postimg.cc/25g6PDCx/ffff.jpg" alt="Озеро Блед">
+
+<p>Казкове озеро з островом та замком.</p>
+</div> <div class="lake"> <h2>Озеро Морейн (Канада)</h2>
+<!-- 🔴 ТУТ ДОДАНО ФОТО -->
+<img src="https://i.postimg.cc/KjD8k3BB/fff.jpg" alt="Озеро Морейн">
+
+<p>Відоме своїм неймовірним блакитним кольором.</p>
+</div> <div class="lake"> <h2>Озеро Комо (Італія)</h2>
+<!-- 🔴 ТУТ ДОДАНО ФОТО -->
+<img src="https://i.postimg.cc/v8rBSkkx/ff.jpg" alt="Озеро Комо">
+
+<p>Розкішне місце відпочинку серед гір.</p>
+<section>
+  <h2>Зв'яжіться з нами</h2>
+
+  <form id="contact-form">
+    <input type="text" name="user_name" placeholder="Ваше ім'я" required>
+    <input type="email" name="user_email" placeholder="Ваш Email" required>
+    <textarea name="message" placeholder="Ваше повідомлення" required></textarea>
+    <button type="submit">Надіслати</button>
+  </form>
+
+  <p id="status"></p>
+</section>
+
+<footer>
+  <p>© 2026 Озера світу</p>
+</footer>
+
+<!-- EmailJS бібліотека -->
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+  // 🔴 ВСТАВ СЮДИ СВІЙ PUBLIC KEY
+  (function(){
+    emailjs.init("L2-e0LTqIlwplmkT6");
+  })();
+
+  document.getElementById("contact-form")
+    .addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // 🔴 ВСТАВ СЮДИ СВІЙ SERVICE ID І TEMPLATE ID
+      emailjs.sendForm(
+        "service_ev783vg",
+        "template_ml63j5d",
+        this
+      ).then(function() {
+        document.getElementById("status").innerText = "Повідомлення успішно надіслано!";
+      }, function(error) {
+        document.getElementById("status").innerText = "Помилка відправки...";
+        console.log(error);
+      });
+    });
+</script>
+
+</body>
+</html>
